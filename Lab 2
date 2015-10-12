@@ -9,6 +9,7 @@ int main()
 {
 	char choice_str[10];
 	int choice;
+	
 	cout << "What would you like to do with your string?" << endl;
 	cout << "Please enter numbers 1 through 5." << endl;
 	cout << "1. Calculate length of the string" << endl;
@@ -17,6 +18,7 @@ int main()
 	cout << "4. Compare two strings" << endl;
 	cout << "5. Exit." << endl << endl;
 	cin.getline(choice_str, 10);
+	
 	if (stringLength(choice_str) != 1 || !isdigit(choice_str[0])) {
 		choice = 6;
 	}
