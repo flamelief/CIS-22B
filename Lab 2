@@ -3,11 +3,10 @@ using namespace std;
 
  int stringLength(const char * str);
  char * stringNCopy(char * destination, const char * source, int num);
- char * stringAdd(char * destination, const char * source);
+ char * stringAdd(char * str1, char * atr2);
 
 int main()
 {
-	char choice_str[10];
 	int choice;
 	bool menu = true;
 
@@ -45,19 +44,32 @@ int main()
 			break;
 
 		case 2:
-		{
-				  char destination[100], source[100];
-				  int num;
-				  cout << "Please enter your string to be copied: ";
-				  cin.getline(source, 100);
-				  cout << "Please enter the max number of characters to be copied: ";
-				  cin >> num;
-				  cout << "The copied string is: " << stringNCopy(destination, source, num) << endl;
-				  break;
-		}
+		
+			char destination[100], source[100];
+			int num;
+			cout << "Please enter your string to be copied: ";
+			cin.get();
+			cin.getline(source, 100);
+			cout << "Please enter the max number of characters to be copied: ";
+			cin >> num;
+			cout << "The copied string is: " << stringNCopy(destination, source, num) << endl << endl;
+			break;
+		
 
 		case 3:
-			char destination[100], source[100];
+			char str1[100];
+			char str2[100];
+			cout << "Please enter your first string: ";
+			cin.get();
+			cin.getline(str1, 100);
+
+			cout << "Please enter your second string: ";
+			cin.get();
+			cin.getline(str2, 100);
+
+			cout << "Your strings together are: " << stringAdd(str1, str2);
+			cout << endl << endl;
+
 			break;
 
 		case 4:
@@ -102,3 +114,8 @@ char * stringNCopy(char* destination, const char* source, int num)
 	return destination;
 }
 
+char * stringAdd(char *str1, char *str2)
+{
+	stringNCopy(&str1[stringLength(str1)], str2, 100);
+	return str1;
+}
