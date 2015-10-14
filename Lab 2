@@ -1,55 +1,62 @@
 #include <iostream>
 using namespace std;
 
-int stringLength(const char * str);
-char * stringNCopy(char * destination, const char * source, int num);
-char * stringAdd(char * destination, const char * source);
+ int stringLength(const char * str);
+ char * stringNCopy(char * destination, const char * source, int num);
+ char * stringAdd(char * destination, const char * source);
 
 int main()
 {
 	char choice_str[10];
 	int choice;
-	
-	cout << "What would you like to do with your string?" << endl;
-	cout << "Please enter numbers 1 through 5." << endl;
-	cout << "1. Calculate length of the string" << endl;
-	cout << "2. Copy one string into another string" << endl;
-	cout << "3. Add two strings " << endl;
-	cout << "4. Compare two strings" << endl;
-	cout << "5. Exit." << endl << endl;
-	cin.getline(choice_str, 10);
-	
-	if (stringLength(choice_str) != 1 || !isdigit(choice_str[0])) {
-		choice = 6;
-	}
-	else {
-		choice = atoi(choice_str);
-	}
-	
-	bool menu = True;
-	do
-	{ 
+	bool menu = true;
 
-	switch(choice)
+	
+
+	while (menu == true)
 	{
+		cout << "Please enter numbers 1 through 5." << endl;
+		cout << "1. Calculate length of a string" << endl;
+		cout << "2. Copy one string into another string" << endl;
+		cout << "3. Add two strings " << endl;
+		cout << "4. Compare two strings" << endl;
+		cout << "5. Exit." << endl << endl;
+
+		cin >> choice;
+
+
+		/*		if (stringLength(choice_str) != 1 || !isdigit(choice_str[0])) {
+					choice = 6;
+					}
+					else {
+					choice = atoi(choice_str);
+					}
+					*/
+
+		switch (choice)
+		{
 		case 1:
 			char str[100];
 			cout << "Please enter your string : ";
+			cin.get();
 			cin.getline(str, 100);
 			cout << "The length of your string is: " << stringLength(str) << endl;
+			cout << endl;
 			break;
 
-		case 2: {
-			char destination[100], source[100];
-			int num;
-			cout << "Please enter your string to be copied: ";
-			cin.getline(source, 100);
-			cout << "Please enter the max number of characters to be copied: ";
-			cin >> num;
-			cout << "The copied string is: " << stringNCopy(destination, source, num) << endl;
-			break; }
+		case 2:
+		{
+				  char destination[100], source[100];
+				  int num;
+				  cout << "Please enter your string to be copied: ";
+				  cin.getline(source, 100);
+				  cout << "Please enter the max number of characters to be copied: ";
+				  cin >> num;
+				  cout << "The copied string is: " << stringNCopy(destination, source, num) << endl;
+				  break;
+		}
 
-		case 3: 
+		case 3:
 			char destination[100], source[100];
 			break;
 
@@ -57,20 +64,20 @@ int main()
 			break;
 
 		case 5:
-			menu = False;
+			menu = false;
 			break;
 
 		default:
-			cout << "Invalid entry. Please try again!" << endl;
+			cout << "Invalid entry. Please try again!" << endl << endl;
 			break;
+		}
 	}
-	}
-	while(menu == True)
+		cin.get();
+		cin.get();
 
-	cin.get();
-	cin.get();
 	return 0;
 }
+
 
 int stringLength(const char * str)
 {
@@ -94,3 +101,4 @@ char * stringNCopy(char* destination, const char* source, int num)
 	*(destination + i) = NULL;
 	return destination;
 }
+
