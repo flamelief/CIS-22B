@@ -26,7 +26,7 @@ int main()
     cout << "5. Exit." << endl << endl;
 
     cin.getline(choice_str, 10);
-    if (strlen(choice_str) != 1 || !isdigit(choice_str[0]))
+    if (stringLength(choice_str) != 1 || !isdigit(choice_str[0]))
     {
       choice = 6;
     }
